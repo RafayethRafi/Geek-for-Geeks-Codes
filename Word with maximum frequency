@@ -1,0 +1,67 @@
+//BISMILLAHIR RAHMANIR RAHIM
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define  endl '\n'
+int main()
+{
+    optimize();
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        char c;
+        cin>>c;
+        getline(cin,s);
+        s = c+s;
+
+        string tmp,ans;
+
+        vector<string>v;
+
+        for(auto u:s)
+        {
+            if(isspace(u))
+            {
+                v.push_back(tmp);
+
+                tmp.clear();
+            }
+            else tmp+= u;
+        }
+
+        v.push_back(tmp);
+
+
+        int maxfq=0;
+
+
+    map<string,int>cnt;
+
+    for(auto u:v)
+    {
+        cnt[u]++;
+        maxfq = max(maxfq,cnt[u]);
+    }
+
+    for(auto u:v)
+    {
+        if(cnt[u]== maxfq)
+        {
+            ans = u;
+            break;
+        }
+    }
+
+    cout<<ans<<" "<<maxfq<<endl;
+
+    }
+
+
+
+
+    return 0;
+}
